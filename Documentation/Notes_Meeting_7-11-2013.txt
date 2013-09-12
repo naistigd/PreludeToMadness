@@ -1,0 +1,19 @@
+Individual Motives:
+
+Idea to produce a game
+game should have a story
+use for drawing modelling
+have something finished
+learn an engine
+
+Tentative Roles/Responsibilities:
+
+Chris : story, planning, game design
+max: programming, art, 
+Arno: programming
+enzo: programming, art, 
+
+Game requirements/idea
+
+short, less than 10min gameplay
+Card game, adventure,  parody of a game
