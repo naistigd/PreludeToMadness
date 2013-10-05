@@ -12,13 +12,12 @@ public class Patrolling : MonoBehaviour
 	private Vector3 velocity = new Vector3(1.0f, 0.0f, 0.0f);
 	private float time = 0.0f;
 	
-	// Use this for initialization
+	//-------------------------------------------------------------------------
 	void Start () 
 	{
 		controller = GetComponent<CharacterController>();
 	}
-	
-	// Update is called once per frame
+	//-------------------------------------------------------------------------
 	void Update () 
 	{
 		
@@ -48,5 +47,5 @@ public class Patrolling : MonoBehaviour
 		}
 		
 	}
-	
+	//-------------------------------------------------------------------------
 }

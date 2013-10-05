@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class InteractableManager : MonoBehaviour 
 {	
-
+	
 	public Interactable[] interactables;		// an array of all our..
 												// .. interactables
 	private int selectedInteractable = -1;		// id of the currently selected
 												// interactable
-	private InteractableObserver observer;		// an obsever we report to
+	private Level1 observer;					// an obsever we report to
 	private List<Interactable> inventory;		// List to get the order in our
 												// inventory right
-	
+	private bool isEnabled_ = true;			
+	//-------------------------------------------------------------------------
 	void Awake() 
 	{
 		inventory = new List<Interactable>();
@@ -30,7 +31,7 @@ public class InteractableManager : MonoBehaviour
 			}	
 		}
 	}
-	
+	//-------------------------------------------------------------------------
 	/*!
 	** Sets interactable gameObjects either active or passive depending wether
 	** they are in the inventory, selected, or not in the inventory and depending
@@ -41,10 +42,11 @@ public class InteractableManager : MonoBehaviour
 	*/
 	void Update()
 	{
+		// Origin for the inventory items.
 		// TODO: Make more generic (depending on the camera settings)
-		float x = -2.0f;
-		float y = -4.5f;	
-		float xOffset = 1.0f;
+		float x = -2.7f;
+		float y = -4.25f;	
+		float xOffset = 1.075f;
 		
 		foreach (Interactable inter in inventory)
 		{
@@ -52,6 +54,7 @@ public class InteractableManager : MonoBehaviour
 			{
 				// compute the position of each interactable object in the
 				// inventory and set it active
+				inter.SetScaleInventory();
 				inter.gameObject.transform.position = new Vector3(
 						x, y, Constants.INV_ITEM_POS_Z
 					);
@@ -72,22 +75,32 @@ public class InteractableManager : MonoBehaviour
       		selectedInteractable = -1;
    		}
 	}
-	
+	//-------------------------------------------------------------------------
 	/*!
 	** Allow one observer to register.
 	*/
-	public void Register(InteractableObserver observer)
+	public void Register(Level1 observer)
 	{
 		this.observer = observer;
 	}
-		
+	//-------------------------------------------------------------------------	
 	/*!
 	**	Called by an [Interactable] if it was left-clicked.
 	*/
 	public void Notify(int id)
 	{
+		// if the manager is not enabled, don't care when an interactable
+		// was clicked
+		if (!isEnabled_)
+		{
+			return;
+		}
+		
+		
 		bool isCollectable = interactables[id].isCollectable;
 		bool isInInventory = interactables[id].isInInventory;
+		
+		observer.Notify(selectedInteractable, id);
 		
 		if (isCollectable && !isInInventory && selectedInteractable == -1)
 		{
@@ -104,7 +117,7 @@ public class InteractableManager : MonoBehaviour
 		
 		if (selectedInteractable != -1)
 		{
-			observer.Notify(selectedInteractable, id);
+			//observer.Notify(selectedInteractable, id);
 			return;
 		}
 	}
@@ -123,7 +136,7 @@ public class InteractableManager : MonoBehaviour
 		interactables[id].isActive = isActive;
 		interactables[id].gameObject.SetActive(isActive);
 	}
-	
+	//-------------------------------------------------------------------------
 	public void SetIsInventory(int id, bool isInInventory)
 	{
 		if (!isInInventory && id == selectedInteractable)
@@ -147,20 +160,26 @@ public class InteractableManager : MonoBehaviour
 		
 		interactables[id].isInInventory = isInInventory;
 	}
-	
+	//-------------------------------------------------------------------------
+	public void Enable(bool isEnabled)
+	{
+		this.isEnabled_ = isEnabled;
+	}
+	//-------------------------------------------------------------------------
 	public void Unselect()
 	{
 		selectedInteractable = -1;
 	}
-	
+	//-------------------------------------------------------------------------
 	public void SetPosition(int id, Vector2 pos)
 	{
 		Vector3 pos3 = interactables[id].transform.position;
 		pos3.x = pos.x;
 		pos3.y = pos.y;
 		interactables[id].transform.position = pos3;
+		interactables[id].SetScaleNormal();
 	}
-	
+	//-------------------------------------------------------------------------
 	public Vector2 GetPosition(int id)
 	{
 		Vector3 pos3D = interactables[id].transform.position;
@@ -170,17 +189,17 @@ public class InteractableManager : MonoBehaviour
 		
 		return pos2D;
 	}
-	
+	//-------------------------------------------------------------------------
 	public bool IsInInventory(int id)
 	{
 		return interactables[id].isInInventory;
 	}
-	
+	//-------------------------------------------------------------------------
 	public bool IsActive(int id)
 	{
 		return interactables[id].isActive;
 	}
-	
+	//-------------------------------------------------------------------------
 	/*!
 	** Gets the name for an [Interactable].
 	*/
@@ -193,7 +212,7 @@ public class InteractableManager : MonoBehaviour
 
 		return interactables[id].gameObject.name;	
 	}
-
+	//-------------------------------------------------------------------------
 	/*!
 	** Gets the [id] for an [Interactables] name.
 	*/
@@ -211,7 +230,7 @@ public class InteractableManager : MonoBehaviour
 
 		return -1;
 	}
-	
+	//-------------------------------------------------------------------------
 	private void TranslateSelectedAndSetActive()
 	{
 		// make the selected item follow the mouse
@@ -227,5 +246,6 @@ public class InteractableManager : MonoBehaviour
 				);
 		}
 	}
+	//-------------------------------------------------------------------------
 	
 }
