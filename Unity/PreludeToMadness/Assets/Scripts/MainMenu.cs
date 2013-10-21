@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
 		StartButton.SetScale(0.5f);
 		
 		float w = StartButton.GetWidth();
-		float x = (Screen.width - w)/2.0f;
+		float x = (Screen.width - w - 120);
 		float y = Screen.height/3.0f;
 		
 		StartButton.SetPosition(new Vector2(x, y));
@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
 		ExitButton.SetScale(0.5f);
 		w = ExitButton.GetWidth();
 		float h = ExitButton.GetHeight();
-		x = (Screen.width - w)/2.0f;
+		x = (Screen.width - w - 120);
 		y += h;
 		
 		ExitButton.SetPosition(new Vector2(x, y));
@@ -84,7 +84,7 @@ public class MainMenu : MonoBehaviour
 		musicFader_.Update(Time.deltaTime);
 		
 		// fade buttons in after ...
-		if (time_ > 6.0f && !haveButtonsFadedIn_)
+		if (time_ > 8.1f && !haveButtonsFadedIn_)
 		{
 			haveButtonsFadedIn_ = true;
 			buttonFader_.FadeIn();
@@ -112,12 +112,9 @@ public class MainMenu : MonoBehaviour
 		)
 		{
 			// Load intro
-			Application.LoadLevel(1);				
+			Application.LoadLevel(2);				
 		}
-	}
-	//-------------------------------------------------------------------------
-	void OnGUI()
-	{
+		
 		// update alpha values of the gui elements
 		BackgroundTex.SetAlpha(backgFader_.GetAlpha());
 		StartButton.SetAlpha(buttonFader_.GetAlpha());
@@ -135,6 +132,16 @@ public class MainMenu : MonoBehaviour
 			buttonFader_.FadeOut();
 			musicFader_.FadeOut();
 		}
+		
+		if (ExitButton.IsPressed())
+		{
+			Application.Quit();
+		}
+	}
+	//-------------------------------------------------------------------------
+	void OnGUI()
+	{
+
 	}
 	//-------------------------------------------------------------------------
 }

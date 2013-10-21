@@ -1,15 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Intro.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenu.cs">
     <Files>
-      <File FileName="Assets/Scripts/Move.cs" Line="52" Column="77" />
-      <File FileName="Assets/Scripts/Level1.cs" Line="195" Column="37" />
-      <File FileName="Assets/Scripts/Sound.cs" Line="17" Column="77" />
-      <File FileName="Assets/Scripts/BackgroundMusic.cs" Line="29" Column="4" />
-      <File FileName="Assets/Scripts/DialogField.cs" Line="43" Column="1" />
-      <File FileName="Assets/Scripts/Fader.cs" Line="70" Column="13" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="19" Column="2" />
-      <File FileName="Assets/Scripts/Intro.cs" Line="46" Column="26" />
+      <File FileName="Assets/Scripts/Move.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level1.cs" Line="100" Column="52" />
+      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Intro.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WonScreen.cs" Line="35" Column="27" />
+      <File FileName="Assets/Scripts/TextureButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SpriteAnimation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Patrolling.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DialogField.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InteractableManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameOverScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BackgroundTexture.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sound.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CompanyLogo.cs" Line="13" Column="36" />
+      <File FileName="Assets/Scripts/Fader.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

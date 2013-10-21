@@ -21,18 +21,20 @@ public class GameOverScreen : MonoBehaviour
 	void Awake() 
 	{
 		// position the again button
-		AgainButton.SetScale(0.5f);
+		AgainButton.SetScale(0.25f);
+		ExitButton.SetScale(0.25f);
+		
+		float off = 50;
 		
 		Vector2 pos = new Vector2();
-		pos.x = Screen.width/4.0f - AgainButton.GetWidth()/2.0f;
+		pos.x = Screen.width/2.0f - (AgainButton.GetWidth() + ExitButton.GetWidth() + 50)/2.0f;
 		pos.y = 40.0f;
 		
 		AgainButton.SetPosition(pos);
 		
 		// position the exit button
-		ExitButton.SetScale(0.5f);
-		
-		pos.x = Screen.width/4.0f*3.0f - ExitButton.GetWidth()/2.0f;
+
+		pos.x = Screen.width/2.0f + (ExitButton.GetWidth())/2.0f;
 		pos.y = 40.0f;
 		
 		ExitButton.SetPosition(pos);
@@ -55,7 +57,7 @@ public class GameOverScreen : MonoBehaviour
 	{
 		if (AgainButton.IsPressed())
 		{
-			Application.LoadLevel(2);
+			Application.LoadLevel(3);
 		}
 		
 		if (ExitButton.IsPressed()) 
@@ -68,7 +70,7 @@ public class GameOverScreen : MonoBehaviour
 	{
 		fader_.Update(Time.deltaTime);
 		
-		BackgroundImage.SetAlpha(fader_.GetAlpha());
+		//BackgroundImage.SetAlpha(fader_.GetAlpha());
 		AgainButton.SetAlpha(fader_.GetAlpha());
 		ExitButton.SetAlpha(fader_.GetAlpha());
 		

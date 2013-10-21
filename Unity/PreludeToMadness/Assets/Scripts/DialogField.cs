@@ -44,12 +44,19 @@ public class DialogField : MonoBehaviour
 		{
 			if (ttt.Start <= time_)
 			{
-				futureText_.Remove(ttt);	
+				//futureText_.Remove(ttt);	
 				currentText_ = ttt.Text;
 				currentColor_ = ttt.Color;
 				eraseTime_ = ttt.End;
 			}
 		}
+		
+		futureText_.RemoveAll(
+			delegate(TextTimeTuple ttt) 
+			{
+    			return ttt.Start <= time_;
+			}
+		);		
 		
 		// check if the current text should be erased
 		if (time_ >= eraseTime_)

@@ -73,6 +73,7 @@ public class TextureButton : MonoBehaviour
 		GUI.color = new Color(1.0f, 1.0f, 1.0f, alpha_);
 		
 		
+		
 		if (GUI.Button(r, ButtonTex) && isClickable_)
 		{
 			isPressed_ = true;

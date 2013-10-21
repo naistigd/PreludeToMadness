@@ -43,7 +43,7 @@ public class Intro : MonoBehaviour
 			// if everything has faded out, load the new level
 			if (musicFader_.GetAlpha() == 0.0f && imseqFader_.GetAlpha() == 0.0f)
 			{				
-				Application.LoadLevel(2);
+				Application.LoadLevel(3);
 			}
 		}
 		
@@ -52,7 +52,10 @@ public class Intro : MonoBehaviour
 		
 		foreach (ImageSequenceElement e in ImageSequenceElements)
 		{
-			e.GlobalAlpha = imseqFader_.GetAlpha();
+			if (e != null)
+			{
+				e.GlobalAlpha = imseqFader_.GetAlpha();
+			}
 		}
 		
 		time_ += Time.deltaTime;
