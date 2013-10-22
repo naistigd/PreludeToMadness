@@ -1,11 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Intro.cs">
     <Files>
       <File FileName="Assets/Scripts/Move.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level1.cs" Line="100" Column="52" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Intro.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level1.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainMenu.cs" Line="87" Column="18" />
+      <File FileName="Assets/Scripts/Intro.cs" Line="14" Column="22" />
       <File FileName="Assets/Scripts/WonScreen.cs" Line="35" Column="27" />
       <File FileName="Assets/Scripts/TextureButton.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SpriteAnimation.cs" Line="1" Column="1" />
